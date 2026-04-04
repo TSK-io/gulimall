@@ -1,14 +1,13 @@
 {
   "name": "Java 8 Dev",
   "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
-
   "features": {
     "ghcr.io/devcontainers/features/java:1": {
       "version": "8",
       "jdkDistro": "ms"
-    }
+    },
+    "ghcr.io/devcontainers/features/maven:1": {}
   },
-
   "customizations": {
     "vscode": {
       "extensions": [
@@ -19,16 +18,24 @@
         "xabikos.JavaScriptSnippets",
         "formulahendry.auto-close-tag",
         "formulahendry.auto-rename-tag",
-        "vscjava.vscode-java-pack"
+        "vscjava.vscode-java-pack",
+        "vmware.vscode-boot-dev-pack"
       ],
       "settings": {
         "java.jdt.ls.java.home": "/usr/local/sdkman/candidates/java/current",
+        "spring-boot.ls.java.home": "/usr/local/sdkman/candidates/java/current",
+        "java.configuration.runtimes": [
+          {
+            "name": "JavaSE-1.8",
+            "path": "/usr/local/sdkman/candidates/java/current",
+            "default": true
+          }
+        ],
         "editor.formatOnSave": true,
         "editor.tabSize": 2
       }
     }
   },
-
-  "postCreateCommand": "java -version",
+  "postCreateCommand": "java -version && mvn -version",
   "remoteUser": "vscode"
 }
