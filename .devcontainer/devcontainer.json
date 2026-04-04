@@ -13,7 +13,6 @@
     "vscode": {
       "extensions": [
         "ritwickdey.LiveServer",
-        "techer.open-in-browser",
         "octref.vetur",
         "dbaeumer.vscode-eslint",
         "ecmel.vscode-html-css",
