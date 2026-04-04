@@ -1,0 +1,36 @@
+{
+  "name": "Java 8 Dev",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+
+  "features": {
+    "ghcr.io/devcontainers/features/java:1": {
+      "version": "8",
+      "jdkDistro": "ms"
+    }
+  },
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ritwickdey.LiveServer",
+        "techer.open-in-browser",
+        "octref.vetur",
+        "dbaeumer.vscode-eslint",
+        "ecmel.vscode-html-css",
+        "abusaidm.html-snippets",
+        "xabikos.JavaScriptSnippets",
+        "formulahendry.auto-close-tag",
+        "formulahendry.auto-rename-tag",
+        "vscjava.vscode-java-pack"
+      ],
+      "settings": {
+        "java.jdt.ls.java.home": "/usr/local/sdkman/candidates/java/current",
+        "editor.formatOnSave": true,
+        "editor.tabSize": 2
+      }
+    }
+  },
+
+  "postCreateCommand": "java -version",
+  "remoteUser": "vscode"
+}
