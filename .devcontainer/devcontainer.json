@@ -1,20 +1,22 @@
 {
-  "name": "Java 8 Dev",
+  "name": "Gulimall Fullstack (Java 8 + Node 10)",
   "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
-
   "features": {
     "ghcr.io/devcontainers/features/java:1": {
       "version": "8",
       "jdkDistro": "ms",
       "installMaven": "true"
+    },
+    // 👇 新增：在这里像搭积木一样注入 Node 10 环境
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "10.16.3"
     }
   },
-
   "customizations": {
     "vscode": {
       "extensions": [
         "ritwickdey.LiveServer",
-        "octref.vetur",
+        "octref.vetur", // Vetur 非常适合 renren-fast-vue 这种 Vue 2 老项目
         "dbaeumer.vscode-eslint",
         "ecmel.vscode-html-css",
         "xabikos.JavaScriptSnippets",
@@ -27,7 +29,6 @@
         // 1. 让 Java 和 Spring Boot 插件去 /opt/jdk-17 找高版本 JDK 运行自己
         "java.jdt.ls.java.home": "/opt/jdk-17",
         "spring-boot.ls.java.home": "/opt/jdk-17",
-        
         // 2. 告诉 VS Code 你的项目依然使用容器默认的 Java 8
         "java.configuration.runtimes": [
           {
@@ -41,9 +42,7 @@
       }
     }
   },
-
-  // 3. 在容器创建时，额外下载一个免安装版的 JDK 17 解压到 /opt/jdk-17 供插件专用，绝对不污染系统环境变量
-  "postCreateCommand": "sudo mkdir -p /opt/jdk-17 && wget -qO- https://aka.ms/download-jdk/microsoft-jdk-17-linux-x64.tar.gz | sudo tar xz --strip-components=1 -C /opt/jdk-17 && java -version && mvn -version",
-  
+  // 👇 修改：在末尾追加了 npm 国内镜像源的自动配置，防止 Node-sass 再次报错
+  "postCreateCommand": "sudo mkdir -p /opt/jdk-17 && wget -qO- https://aka.ms/download-jdk/microsoft-jdk-17-linux-x64.tar.gz | sudo tar xz --strip-components=1 -C /opt/jdk-17 && npm config set registry https://registry.npmmirror.com && npm config set sass_binary_site https://npmmirror.com/mirrors/node-sass/ && java -version && mvn -version && node -v",
   "remoteUser": "vscode"
 }
