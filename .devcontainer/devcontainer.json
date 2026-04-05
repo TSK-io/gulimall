@@ -42,7 +42,7 @@
       }
     }
   },
-  // 👇 修改：在末尾追加了 npm 国内镜像源的自动配置，防止 Node-sass 再次报错
-  "postCreateCommand": "sudo mkdir -p /opt/jdk-17 && wget -qO- https://aka.ms/download-jdk/microsoft-jdk-17-linux-x64.tar.gz | sudo tar xz --strip-components=1 -C /opt/jdk-17 && npm config set registry https://registry.npmmirror.com && npm config set sass_binary_site https://npmmirror.com/mirrors/node-sass/ && java -version && mvn -version && node -v",
+  // 👇 修改：在脚本最前面追加了自动更新并安装字体库的命令
+  "postCreateCommand": "sudo apt-get update && sudo apt-get install -y fontconfig fonts-dejavu && sudo mkdir -p /opt/jdk-17 && wget -qO- https://aka.ms/download-jdk/microsoft-jdk-17-linux-x64.tar.gz | sudo tar xz --strip-components=1 -C /opt/jdk-17 && npm config set registry https://registry.npmmirror.com && npm config set sass_binary_site https://npmmirror.com/mirrors/node-sass/ && java -version && mvn -version && node -v",
   "remoteUser": "vscode"
 }
