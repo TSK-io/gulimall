@@ -16,14 +16,15 @@
     "vscode": {
       "extensions": [
         "ritwickdey.LiveServer",
-        "octref.vetur", // Vetur 非常适合 renren-fast-vue 这种 Vue 2 老项目
+        "octref.vetur",
         "dbaeumer.vscode-eslint",
         "ecmel.vscode-html-css",
         "xabikos.JavaScriptSnippets",
         "formulahendry.auto-close-tag",
         "formulahendry.auto-rename-tag",
         "vscjava.vscode-java-pack",
-        "vmware.vscode-boot-dev-pack"
+        "vmware.vscode-boot-dev-pack",
+        "GitHub.copilot-chat"
       ],
       "settings": {
         // 1. 让 Java 和 Spring Boot 插件去 /opt/jdk-17 找高版本 JDK 运行自己
