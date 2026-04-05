@@ -5,6 +5,13 @@ spring:
     url: jdbc:mysql://178.128.97.94:3306/gulimall_ums
     driver-class-name: com.mysql.jdbc.Driver
 
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 178.128.97.94:8848
+  application:
+    name: gulimall-member
+
 mybatis-plus:
   mapper-locations: classpath:/mapper/**/*.xml
   global-config:
